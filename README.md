@@ -97,3 +97,14 @@ Training Arguments:
 ## LAMMPS Interface
 To use the trained Pytorch model for SDPD simulations in LAMMPS program please refer to its own [Github repository](https://github.com/PIMILab/DataDrivenParticleDynamicsForLAMMPS).
 
+## Citation
+If you found this code useful please cite our work as:
+
+```
+@article{hernandez2022datadriven,
+  title={Data-driven particle dynamics: Structure-preserving coarse-graining for emergent behavior in non-equilibrium systems},
+  author={Hernandez, Quercus and Win, Max and O'Connor, Thomas C. and Arratia, Paulo E. and Trask, Nathaniel},
+  journal={journal={arXiv preprint arXiv:XXX},},
+  year={2025},
+}
+```
