@@ -95,5 +95,5 @@ Training Arguments:
 | `--N_train`               | Number of training snapshots                      | Default: `300`                                        |
 
 ## LAMMPS Interface
-To use the trained Pytorch model for SDPD simulations in LAMMPS program please refer to its own [Github repository](https://github.com/maxsw02/DataDrivenParticleDynamicsForLAMMPS).
+To use the trained Pytorch model for SDPD simulations in LAMMPS program please refer to its own [Github repository](https://github.com/PIMILab/DataDrivenParticleDynamicsForLAMMPS).
 
