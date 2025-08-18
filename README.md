@@ -101,10 +101,10 @@ To use the trained Pytorch model for SDPD simulations in LAMMPS program please r
 If you found this code useful please cite our work as:
 
 ```
-@article{hernandez2022datadriven,
+@article{hernandez2022data,
   title={Data-driven particle dynamics: Structure-preserving coarse-graining for emergent behavior in non-equilibrium systems},
   author={Hernandez, Quercus and Win, Max and O'Connor, Thomas C. and Arratia, Paulo E. and Trask, Nathaniel},
-  journal={journal={arXiv preprint arXiv:XXX},},
+  journal={arXiv preprint arXiv:XXX},
   year={2025},
 }
 ```
