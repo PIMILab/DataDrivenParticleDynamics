@@ -3,9 +3,7 @@
   
 # Data-driven particle dynamics: structure-preserving coarse-graining for non-equilibrium systems
 
-[![Project page](https://img.shields.io/badge/-Project%20page-blue)](https://amb.unizar.es/people/quercus-hernandez/)
-[![Paper](https://img.shields.io/badge/Paper-PDF-red)](https://arxiv.org/pdf/2203.01874.pdf)
-[![PNAS](https://img.shields.io/badge/IEEE%20TAI-2022-green)](https://ieeexplore.ieee.org/document/9787069)
+[![Paper](https://img.shields.io/badge/Paper-PDF-red)]()
 
 </div>
 
