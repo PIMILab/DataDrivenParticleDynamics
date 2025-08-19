@@ -17,7 +17,7 @@ First, clone the project.
 
 ```bash
 # clone project
-git clone https://github.com/quercushernandez/DataDrivenParticleDynamics.git
+git clone https://github.com/PIMILab/DataDrivenParticleDynamics.git
 cd DataDrivenParticleDynamics
 ```
 
