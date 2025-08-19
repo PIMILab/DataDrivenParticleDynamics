@@ -16,7 +16,7 @@ For more information, please refer to the following:
 - Hernandez, Quercus and Win, Max and O'Connor, Thomas C. and Arratia, Paulo E. and Trask, Nathaniel. "[Data-driven particle dynamics: Structure-preserving coarse-graining for emergent behavior in non-equilibrium systems](https://arxiv.org/abs/2508.12569)." Arxiv, under review (2025).
 
 <div align="center">
-<img src="/data/teaser.png" width="450">
+<img src="/data/teaser.png" width="500">
 </div>
 
 ## Setting it up
