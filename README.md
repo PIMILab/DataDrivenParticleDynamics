@@ -1,7 +1,7 @@
 
 <div align="center">  
   
-# Data-driven particle dynamics: structure-preserving coarse-graining for non-equilibrium systems
+# Data-driven particle dynamics: Structure-preserving coarse-graining for non-equilibrium systems
 
 [![Paper](https://img.shields.io/badge/Paper-PDF-red)](https://arxiv.org/pdf/2508.12569)
 
