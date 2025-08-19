@@ -22,7 +22,7 @@ def main(args):
         solver.export_jit()
     # Test
     for dset in args.dset_test:
-        solver.test_model(dset)
+        _ = solver.test_model(dset)
 
 
 

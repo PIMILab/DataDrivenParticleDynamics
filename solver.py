@@ -67,6 +67,7 @@ class Solver(object):
         epoch = 0
         train_log = {'epoch':[], 'loss_mu':[], 'loss_var':[], 'loss_mse':[]}
         val_log = {'epoch':[], 'loss_mu':[], 'loss_var':[], 'loss_mse':[]}
+        RRMSE_best = float('inf')
 
         print("\n[Training Started]\n")
         
@@ -166,13 +167,22 @@ class Solver(object):
             print('MSE Loss: {:1.2e} (Train) / {:1.2e} (Val)'.format(loss_mse_train, loss_mse_val))
             print('k_B = {:1.2e}, m = {:1.2e}'.format(torch.exp(self.model.log_k_B).item(), torch.exp(self.model.log_m).item()))
 
+            # Rollout evaluation
+            if (epoch > self.max_epoch // 4) and (epoch % (self.max_epoch // 50) == 0):
+                # Test model
+                RRMSE = self.test_model(self.args.dset_train)
+
+                # Save best net parameters
+                if RRMSE < RRMSE_best:
+                    RRMSE_best = RRMSE
+                    save_dir = os.path.join(self.output_dir, 'params.pt')
+                    torch.save(self.model.state_dict(), save_dir)
+
             epoch += 1
 
         print("[Training Finished]\n")
 
-        # Save net parameters
-        save_dir = os.path.join(self.output_dir, 'params.pt')
-        torch.save(self.model.state_dict(), save_dir)
+        # Save hyperparameters
         save_dir = os.path.join(self.output_dir, 'args.json')
         with open(save_dir, 'w') as f:
             json.dump(vars(self.args), f, indent=4)
@@ -210,14 +220,17 @@ class Solver(object):
             RRMSE_VACF = torch.mean((results_net['VACF'] - results_gt['VACF'])**2).item()**0.5 / torch.mean(results_gt['VACF']**2).item()**0.5
             RRMSE_RDF = torch.mean((results_net['RDF'][0] - results_gt['RDF'][0])**2).item()**0.5 / torch.mean(results_gt['RDF'][0]**2).item()**0.5
             RRMSE_MSD = torch.mean((results_net['MSD'] - results_gt['MSD'])**2).item()**0.5 / torch.mean(results_gt['MSD']**2).item()**0.5
+            RRMSE = (RRMSE_VACF + RRMSE_RDF + RRMSE_MSD) / 3.0
             print('RRMSE_VACF: {:1.2e}, RRMSE_RDF: {:1.2e}, RRMSE_MSD: {:1.2e}'.format(RRMSE_VACF, RRMSE_RDF, RRMSE_MSD))
         else:
             RRMSE_R = torch.mean((results_net['x'][...,:self.dims] - results_gt['x'][...,:self.dims])**2).item()**0.5 / torch.mean(results_gt['x'][...,:self.dims]**2).item()**0.5
             RRMSE_RDF = torch.mean((results_net['RDF'][0] - results_gt['RDF'][0])**2).item()**0.5 / torch.mean(results_gt['RDF'][0]**2).item()**0.5
-
-            print('RRMSE_R: {:1.2e}, RRMSE_RDF: {:1.2e}'.format(RRMSE_R, RRMSE_RDF))       
+            RRMSE = (RRMSE_R + RRMSE_RDF) / 2
+            print('RRMSE_R: {:1.2e}, RRMSE_RDF: {:1.2e}'.format(RRMSE_R, RRMSE_RDF))
 
         print('[Test Set \'' + dset + '\' Finished]\n')
+
+        return RRMSE
 
 
     # Integrate a single simulation
