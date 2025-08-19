@@ -9,7 +9,15 @@
 
 ## Abstract
 
-This work develops a novel coarse-graining machine learning methodology which satisfies the laws of thermodynamics by construction. The theory is based on the definition of the relevant state variables of a physical system and then enforcing the metriplectic structure using the GENERIC formalism with stochastic effects.
+Multiscale systems are ubiquitous in science and technology, but are notoriously challenging to simulate as short spatiotemporal scales must be appropriately linked to emergent bulk physics. When expensive high-dimensional dynamical systems are coarse-grained into low-dimensional models, the entropic loss of information leads to emergent physics which are dissipative, history-dependent, and stochastic. To machine learn coarse-grained dynamics from time-series observations of particle trajectories, we propose a framework using the metriplectic bracket formalism that preserves these properties by construction; most notably, the framework guarantees discrete notions of the first and second laws of thermodynamics, conservation of momentum, and a discrete fluctuation-dissipation balance crucial for capturing non-equilibrium statistics. We introduce the mathematical framework abstractly before specializing to a particle discretization. As labels are generally unavailable for entropic state variables, we introduce a novel self-supervised learning strategy to identify emergent structural variables. We validate the method on benchmark systems and demonstrate its utility on two challenging examples: (1) coarse-graining star polymers at challenging levels of coarse-graining while preserving non-equilibrium statistics, and (2) learning models from high-speed video of colloidal suspensions that capture coupling between local rearrangement events and emergent stochastic dynamics. We provide open-source implementations in both PyTorch and LAMMPS, enabling large-scale inference and extensibility to diverse particle-based systems.
+
+For more information, please refer to the following:
+
+- Hernandez, Quercus and Win, Max and O'Connor, Thomas C. and Arratia, Paulo E. and Trask, Nathaniel. "[Data-driven particle dynamics: Structure-preserving coarse-graining for emergent behavior in non-equilibrium systems](https://arxiv.org/abs/2508.12569)." Arxiv, under review (2025).
+
+<div align="center">
+<img src="/data/teaser.png" width="450">
+</div>
 
 ## Setting it up
 
